@@ -46,12 +46,12 @@ public class Main {
 					System.out.println("Invalid choice. Please enter a valid option.");
 				}
 			} catch (NoSuchElementException e) {
-				System.err.println("Error reading input: " + e.getMessage());
+				System.out.println("Error reading input: " + e.getMessage());
 				s.nextLine(); 
 			} catch (SQLException e) {
-				System.err.println("Database error: " + e.getMessage());
+				System.out.println("Database error: " + e.getMessage());
 			} catch (Exception e) {
-				System.err.println("An unexpected error occurred: " + e.getMessage());
+				System.out.println("An unexpected error occurred: " + e.getMessage());
 			}
 
 		} while (choice != 3);
