@@ -6,14 +6,14 @@ import java.util.Scanner;
 
 public class PassengersController {
 
-	private static  Database database;
+	private Database database;
 	private Passenger passenger;
-	
-	 public PassengersController(Database database) {
-	        this.database = database;
-	    }
 
-	public static void addNewPassenger(Database database) throws SQLException {
+	public PassengersController(Database database) {
+		this.database = database;
+	}
+
+	public void addNewPassenger() throws SQLException {
 		Scanner s = new Scanner(System.in);
 		try {
 			System.out.println("Enter the Id : ");
@@ -58,7 +58,7 @@ public class PassengersController {
 
 	}
 
-	public static void editPassenger(Passenger passenger) throws SQLException {
+	public void editPassenger(Passenger passenger) throws SQLException {
 		Scanner s = new Scanner(System.in);
 		System.out.println("Enter new First Name: ");
 		String firstName = s.nextLine();
@@ -80,4 +80,19 @@ public class PassengersController {
 
 	}
 
+	public void deletePassengerById(int pid) throws SQLException {
+		Scanner s=new Scanner(System.in);
+		Passenger passenger = database.getPassengerById(pid);
+		System.out.println("Below are the details of a passenger you wish to delete : " + passenger);
+		System.out.println("Are you sure want to delete? (Yes/No)");
+		String choice=s.next();
+		if(choice.equalsIgnoreCase("Yes")) {
+		database.deletePassenger(pid);
+		}
+		else {
+			System.out.println("Deletion Cancelled");
+		}
+	}
+
 }
+
