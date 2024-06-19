@@ -60,7 +60,11 @@ public class Passenger {
 		this.email = email;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Passenger [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", mobileNo=" + mobileNo
+				+ ", email=" + email + "]";
+	}
 	
 	
 
